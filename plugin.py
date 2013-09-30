@@ -1,0 +1,2 @@
+class BasePlugin(PythonPlugin):
+	pass
