@@ -1,12 +1,12 @@
 from org.bukkit.event import Listener
 
 
+priorities = ["highest","high","normal","low","lowest","monitor"]
+
 class NonExistentPriorityException(Exception):
     pass
 
 class BaseListener(Listener):
-
-    __priorities = ["highest","high","normal","low","lowest","monitor"]
 
     def onEnable(self):
         pass
@@ -15,7 +15,7 @@ class BaseListener(Listener):
         pass
 
     def register_event(self, func, event_class, priority='normal'):
-        if priority.lower() not in __priorities:
+        if priority.lower() not in priorities:
             raise NonExistentPriorityException()
 
         if not hasattr(self, '_event_handlers'):
